@@ -19,3 +19,14 @@ html,body,header,.jarallax {
         margin-top: 1rem !important;
     }
 }
+
+mark {
+    line-height: 1.5;
+}
+
+.heart {
+    color: #757575;
+}
+.heart:hover {
+    color: rgb(192, 25, 25);
+}
