@@ -1,0 +1,21 @@
+#welcome {
+    font-size: 5rem;
+}
+@media (max-width: 740px) {
+    #welcome {
+        font-size: 2.5rem;
+    }
+}
+
+html,body,header,.jarallax {
+    height: 100%;
+}
+
+#mainDesc{
+    margin-top: 7rem !important;
+}
+@media (max-width: 740px) {
+    #mainDesc {
+        margin-top: 1rem !important;
+    }
+}

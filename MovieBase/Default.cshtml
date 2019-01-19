@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @RenderPage("~/Templates/Common/_Head.cshtml", new { title = "EveryMovie | Your movie database" })
+
+    <link href="css/home.css" rel="stylesheet">
+</head>
+
+<body class="">
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+            <div class="container">
+                <a class="navbar-brand font-weight-bold" href="~/">MovieBase</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mr-auto smooth-scroll">
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/About" data-offset="100">About</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav nav-flex-icons">
+                        <li class="nav-item">
+                            <a class="nav-link"><i class="fab fa-facebook-f light-green-text-2"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"><i class="fab fa-twitter light-green-text-2"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"><i class="fab fa-instagram light-green-text-2"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="home" class="view jarallax" style="background-image: url('/img/web/background.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            <div class="container h-100">
+                <div class="row smooth-scroll m-auto" id="mainDesc">
+                    <div class="col-md-12 pt-3">
+                        <div class="text-center pt-5">
+                            <h1 class="mb-4 white-text wow fadeIn" id="welcome">Welcome to <strong>MovieBase</strong></h1>
+                            <h5 class="text-uppercase font-weight-bold wow fadeIn h5-responsive" data-wow-delay="0.4s"><mark>Your movie database. Make yourself at home.</mark></h5>
+                            <a href="#main" class="btn btn-floating btn-large btn-unique wow fadeIn" data-wow-delay="0.4s" data-offset="100"><i class="fas fa-angle-down" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container" id="main">
+            <div style="height: 100vh">
+                <div class="flex-center flex-column">
+                    <h1 class="animated fadeIn mb-2">Main</h1>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    @RenderPage("~/Templates/Common/_Scripts.cshtml")
+
+    <script type="text/javascript" src="js/home.js"></script>
+
+</body>
+
+</html>
