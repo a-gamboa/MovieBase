@@ -27,6 +27,14 @@ mark {
 .heart {
     color: #757575;
 }
-.heart:hover {
-    color: rgb(192, 25, 25);
+    .heart:hover {
+        transition: 0.3s;
+        color: rgb(192, 25, 25);
+    }
+
+#home {
+    background-image: url('/img/web/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }

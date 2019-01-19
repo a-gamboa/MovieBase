@@ -36,7 +36,7 @@
             </div>
         </nav>
 
-        <div id="home" class="view jarallax" style="background-image: url('/img/web/background.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <div id="home" class="view jarallax">
             <div class="container h-100">
                 <div class="row smooth-scroll m-auto" id="mainDesc">
                     <div class="col-md-12 pt-3">
@@ -53,12 +53,12 @@
 
     <main>
         <div class="container" id="main">
-            <section class="section pb-3 wow fadeIn" data-wow-delay="0.3s">
+            <section class="section pb-4 wow fadeIn" data-wow-delay="0.3s" id="popularMoviesSection">
                 <h1 class="font-weight-bold text-center h1 my-5 h1-responsive"><i class="fas fa-fire mr-3 red-text"></i>Popular Movies</h1>
                 <p class="text-center grey-text mb-5 mx-auto w-responsive">
                     <i class="fas fa-quote-right mr-2"></i><em>We don’t make movies to make money, we make money to make more movies.</em><br /><span class="mx-2">-</span>Walt Disney
                 </p>
-                <div class="row">
+                <div class="row" id="">
                     <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card">
                             <div class="view overlay z-depth-1">
@@ -118,7 +118,7 @@
                                     </span>
                                     <span class="float-right">
                                         <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                            <i class="fas fa-heart"></i>
+                                            <i class="fas fa-heart heart mr-2"></i> <span>X</span>
                                         </a>
                                     </span>
                                 </div>
@@ -151,7 +151,7 @@
                                     </span>
                                     <span class="float-right">
                                         <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                            <i class="fas fa-heart"></i>
+                                            <i class="fas fa-heart heart mr-2"></i> <span>X</span>
                                         </a>
                                     </span>
                                 </div>
@@ -184,9 +184,62 @@
                                     </span>
                                     <span class="float-right">
                                         <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                            <i class="fas fa-heart"></i>
+                                            <i class="fas fa-heart heart mr-2"></i> <span>X</span>
                                         </a>
                                     </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="row0"></div>
+            </section>
+            <section class="section pb-5 d-none" id="loader">
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <div class="preloader-wrapper big active">
+                            <div class="spinner-layer spinner-blue">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                            <div class="spinner-layer spinner-red">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                            <div class="spinner-layer spinner-yellow">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                            <div class="spinner-layer spinner-green">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
                                 </div>
                             </div>
                         </div>
@@ -200,7 +253,8 @@
 
     @RenderPage("~/Templates/Common/_Scripts.cshtml")
 
-    <script type="text/javascript" src="js/home.js"></script>
+    <script type="text/javascript" src="js/home/home.js"></script>
+    <script type="text/javascript" src="js/home/popular.js"></script>
 
 </body>
 
