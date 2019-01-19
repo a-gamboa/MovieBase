@@ -4,7 +4,7 @@
 <head>
     @RenderPage("~/Templates/Common/_Head.cshtml", new { title = "MovieBase | Your movie database" })
 
-    <link href="css/home.css" rel="stylesheet">
+    <link href="~/css/home.css" rel="stylesheet">
 </head>
 
 <body class="">
@@ -58,6 +58,7 @@
                 <p class="text-center grey-text mb-5 mx-auto w-responsive">
                     <i class="fas fa-quote-right mr-2"></i><em>We don’t make movies to make money, we make money to make more movies.</em><br /><span class="mx-2">-</span>Walt Disney
                 </p>
+                <!--
                 <div class="row" id="">
                     <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card">
@@ -192,6 +193,7 @@
                         </div>
                     </div>
                 </div>
+                    -->
                 <div class="row" id="row0"></div>
             </section>
             <section class="section pb-5 d-none" id="loader">
@@ -253,8 +255,8 @@
 
     @RenderPage("~/Templates/Common/_Scripts.cshtml")
 
-    <script type="text/javascript" src="js/home/home.js"></script>
-    <script type="text/javascript" src="js/home/popular.js"></script>
+    <script type="text/javascript" src="~/js/home/home.js"></script>
+    <script type="text/javascript" src="~/js/home/popular.js"></script>
 
 </body>
 

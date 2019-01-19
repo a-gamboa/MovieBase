@@ -33,7 +33,7 @@ mark {
     }
 
 #home {
-    background-image: url('/img/web/background.jpg');
+    background-image: url('../img/web/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
