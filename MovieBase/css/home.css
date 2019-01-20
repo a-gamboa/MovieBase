@@ -53,3 +53,11 @@ mark {
         padding-right: 2rem !important;
     }
 }
+
+.select-dropdown{
+    max-height: 400px;
+}
+
+#countryDiv{
+    width: 220px;
+}

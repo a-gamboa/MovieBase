@@ -18,10 +18,10 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav mr-auto smooth-scroll">
                         <li class="nav-item">
-                            <a class="nav-link" href="~/">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="~/"><i class="fas fa-home mr-2"></i>Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="~/About" data-offset="100">About</a>
+                            <a class="nav-link" href="~/Search" data-offset="100"><i class="fas fa-search mr-2"></i>Search</a>
                         </li>
                     </ul>
 
@@ -41,7 +41,7 @@
                         <div class="text-center pt-5">
                             <h1 class="mb-4 white-text fadeIn" id="welcome">Welcome to <strong>MovieBase</strong></h1>
                             <h5 class="text-uppercase font-weight-bold fadeIn h5-responsive"><mark>Your movie database. Make yourself at home.</mark></h5>
-                            <a href="#main" class="btn btn-floating btn-large btn-unique fadeIn" data-offset="100"><i class="fas fa-angle-down" aria-hidden="true"></i></a>
+                            <a href="#main" class="btn btn-floating btn-large teal darken-1 fadeIn" data-offset="100"><i class="fas fa-angle-down" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -51,12 +51,25 @@
 
     <main>
         <div class="container" id="main">
-            <section class="section pb-4 fadeIn" id="popularMoviesSection">
-                <h1 class="font-weight-bold text-center h1 my-5 h1-responsive"><i class="fas fa-fire mr-3 red-text"></i>Popular Movies</h1>
+            <section class="section pb-4 fadeIn" id="moviesSection">
+                <h1 class="font-weight-bold text-center h1 mt-5 mb-4 h1-responsive"><i class="fas fa-fire mr-3 red-text"></i>Popular Movies</h1>
+                <div class="row mb-3">
+                    <div class="m-auto" id="countryDiv">
+                        <small><i class="fas fa-filter indigo-text mr-2"></i>Filter by country</small>
+                        <select class="mdb-select md-form m-auto" id="countrySelector" searchable="Search here...">
+                            <option value="" disabled selected>Choose country</option>
+                        </select>
+                    </div>
+                </div>
                 <p class="text-center grey-text mb-5 mx-auto w-responsive">
                     <i class="fas fa-quote-right mr-2"></i><em>We don’t make movies to make money, we make money to make more movies.</em><br /><span class="mx-2">-</span>Walt Disney
                 </p>
-                <div class="row" id="row0"></div>
+                <div id="popularMoviesSection">
+                    <div class="row" id="row0"></div>
+                </div>
+                <div id="byCountryMoviesSection0" class="d-none">
+                    <div class="row" id="row0"></div>
+                </div>
             </section>
             <section class="section pb-5 d-none" id="loader">
                 <div class="row">
@@ -117,6 +130,7 @@
     @RenderPage("~/Templates/Common/_Scripts.cshtml")
 
     <script type="text/javascript" src="~/js/home/home.js"></script>
+    <script type="text/javascript" src="~/js/home/countries.js"></script>
 
 </body>
 

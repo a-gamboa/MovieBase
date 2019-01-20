@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @RenderPage("~/Templates/Common/_Head.cshtml", new { title = "MovieBase | Your movie database" })
+
+    <link href="~/css/search.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top scrolling-navbar">
+            <div class="container">
+                <a class="navbar-brand font-weight-bold" href="~/">MovieBase</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggler">
+                    <ul class="navbar-nav mr-auto smooth-scroll">
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/"><i class="fas fa-home mr-2"></i>Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Search" data-offset="100"><i class="fas fa-search mr-2"></i>Search</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav nav-flex-icons">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.linkedin.com/in/alvaro-gamboa"><i class="fab fa-linkedin-in light-green-text-2"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+        <div class="container" id="main">
+            <section class="section py-5 fadeIn">
+                <h1 class="font-weight-bold text-center h1 mt-5 mb-4 h1-responsive"><i class="fas fa-film mr-3 indigo-text"></i>Search Movie</h1>
+                <div class="md-form m-auto my-3">
+                    <i class="fas fa-search prefix"></i>
+                    <input type="text" id="searchMovie" class="form-control">
+                    <label for="searchMovie">Search movie</label>
+                </div>
+                <div class="row d-none mt-4" id="divResults">
+                    <div class="card card-cascade wider m-auto">
+                        <div class="view view-cascade gradient-card-header blue-gradient py-2">
+                            <h4 class="card-header-title m-0"><i class="fas fa-list-ul mr-3"></i>Results</h4>
+                        </div>
+                        <div class="card-body card-body-cascade text-center">
+                            <p class="card-text" id="movieList">
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    @RenderPage("~/Templates/Common/_Footer.cshtml")
+    @RenderPage("~/Templates/Common/_Scripts.cshtml")
+
+    <script type="text/javascript" src="~/js/home/movieSearch.js"></script>
+
+</body>
+
+</html>

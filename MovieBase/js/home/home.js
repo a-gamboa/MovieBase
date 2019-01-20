@@ -32,8 +32,8 @@ $(document).ready(function () {
 
 
 /* APPEND ROW FUNCTION (4 MOVIES/ROW) */
-function appendRow(rowID) {
-    $("#popularMoviesSection").append(`<div class="row" id="row` + rowID + `"></row>`);
+function appendRow(divName, rowID) {
+    $("#"+divName).append(`<div class="row" id="row` + rowID + `"></row>`);
 }
 
 
@@ -106,7 +106,7 @@ function loadAPI(page) {
         for (var i = 0, l = response.results.length; i < l; i++) {
             if (i % 4 == 0) {
                 rowID++;
-                appendRow(rowID);
+                appendRow("popularMoviesSection", rowID);
             }
             appendMovie(rowID, response.results[i].title, response.results[i].id, response.results[i].poster_path, new Date(response.results[i].release_date), response.results[i].overview, response.results[i].vote_average);
         }
