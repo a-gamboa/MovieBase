@@ -66,7 +66,7 @@ function appendMovie(rowID, title, movieID, imagePath, releaseDate, overview, ra
                                     <span class="small grey-text float-left ml-1">/10</span>
                                     <span class="float-right">
                                         <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                            <i class="fas fa-heart heart mr-2"></i> <span>X</span>
+                                            <i class="fas fa-heart heart mr-2"></i>
                                         </a>
                                     </span>
                                 </div>
