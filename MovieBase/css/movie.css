@@ -1,0 +1,27 @@
+#divBackground {
+    max-height: 500px;
+    padding-top: 62px;
+    background-color: #212121 !important;
+}
+
+@media (max-width: 767px) {
+    #divBackground {
+        padding-top: 55px;
+    }
+    #title{
+        font-size: 1.7rem;
+    }
+}
+
+.heart {
+    color: #757575;
+}
+
+    .heart:hover {
+        transition: 0.3s;
+        color: rgb(192, 25, 25);
+    }
+
+.card {
+    background: rgba(255, 255, 255, .95);
+}

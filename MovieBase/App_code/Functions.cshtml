@@ -1,0 +1,29 @@
+﻿@{
+    @functions 
+    {
+
+        public static string RatingColor(decimal rating)
+        {
+            if (rating >= 7)
+            {
+                return "success-color";
+            }
+            else if (rating >= 6)
+            {
+                return "indigo";
+            }
+            else if (rating >= 5)
+            {
+                return "warning-color-dark";
+            }
+            else if (rating < 5)
+            {
+                return "red darken-2";
+            }
+            else
+            {
+                return "";
+            }
+        }
+    }
+}
