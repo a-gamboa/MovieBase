@@ -7,10 +7,8 @@
     <link href="~/css/home.css" rel="stylesheet">
 </head>
 
-<body class="">
-
+<body>
     <header>
-
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top scrolling-navbar">
             <div class="container">
                 <a class="navbar-brand font-weight-bold" href="~/">MovieBase</a>
@@ -41,9 +39,9 @@
                 <div class="row smooth-scroll m-auto" id="mainDesc">
                     <div class="col-md-12 pt-3">
                         <div class="text-center pt-5">
-                            <h1 class="mb-4 white-text wow fadeIn" id="welcome">Welcome to <strong>MovieBase</strong></h1>
-                            <h5 class="text-uppercase font-weight-bold wow fadeIn h5-responsive" data-wow-delay="0.4s"><mark>Your movie database. Make yourself at home.</mark></h5>
-                            <a href="#main" class="btn btn-floating btn-large btn-unique wow fadeIn" data-wow-delay="0.4s" data-offset="100"><i class="fas fa-angle-down" aria-hidden="true"></i></a>
+                            <h1 class="mb-4 white-text fadeIn" id="welcome">Welcome to <strong>MovieBase</strong></h1>
+                            <h5 class="text-uppercase font-weight-bold fadeIn h5-responsive"><mark>Your movie database. Make yourself at home.</mark></h5>
+                            <a href="#main" class="btn btn-floating btn-large btn-unique fadeIn" data-offset="100"><i class="fas fa-angle-down" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -53,147 +51,11 @@
 
     <main>
         <div class="container" id="main">
-            <section class="section pb-4 wow fadeIn" data-wow-delay="0.3s" id="popularMoviesSection">
+            <section class="section pb-4 fadeIn" id="popularMoviesSection">
                 <h1 class="font-weight-bold text-center h1 my-5 h1-responsive"><i class="fas fa-fire mr-3 red-text"></i>Popular Movies</h1>
                 <p class="text-center grey-text mb-5 mx-auto w-responsive">
                     <i class="fas fa-quote-right mr-2"></i><em>We don’t make movies to make money, we make money to make more movies.</em><br /><span class="mx-2">-</span>Walt Disney
                 </p>
-                <!--
-                <div class="row" id="">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card">
-                            <div class="view overlay z-depth-1">
-                                <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/5Kg76ldv7VxeX9YlcQXiowHgdX6.jpg" class="card-img-top" alt="">
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-                            <div class="card-body text-center no-padding">
-                                <a href="" class="text-muted">
-                                    <h6>01/01/2019</h6>
-                                </a>
-                                <h4 class="card-title">
-                                    <strong>
-                                        <a href="">Movie Title</a>
-                                    </strong>
-                                </h4>
-                                <p class="card-text">
-                                    Neque porro quisquam est, qui dolorem ipsum quia dolor.
-                                </p>
-                                <div class="card-footer bg-transparent">
-                                    <span class="float-left">
-                                        Rating
-                                    </span>
-                                    <span class="float-right">
-                                        <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                            <i class="fas fa-heart heart mr-2"></i> <span>X</span>
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card">
-                            <div class="view overlay z-depth-1">
-                                <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/5Kg76ldv7VxeX9YlcQXiowHgdX6.jpg" class="card-img-top" alt="">
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-                            <div class="card-body text-center no-padding">
-                                <a href="" class="text-muted">
-                                    <h6>01/01/2019</h6>
-                                </a>
-                                <h4 class="card-title">
-                                    <strong>
-                                        <a href="">Movie Title</a>
-                                    </strong>
-                                </h4>
-                                <p class="card-text">
-                                    Neque porro quisquam est, qui dolorem ipsum quia dolor.
-                                </p>
-                                <div class="card-footer bg-transparent">
-                                    <span class="float-left">
-                                        Rating
-                                    </span>
-                                    <span class="float-right">
-                                        <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                            <i class="fas fa-heart heart mr-2"></i> <span>X</span>
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card">
-                            <div class="view overlay z-depth-1">
-                                <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/5Kg76ldv7VxeX9YlcQXiowHgdX6.jpg" class="card-img-top" alt="">
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-                            <div class="card-body text-center no-padding">
-                                <a href="" class="text-muted">
-                                    <h6>01/01/2019</h6>
-                                </a>
-                                <h4 class="card-title">
-                                    <strong>
-                                        <a href="">Movie Title</a>
-                                    </strong>
-                                </h4>
-                                <p class="card-text">
-                                    Neque porro quisquam est, qui dolorem ipsum quia dolor.
-                                </p>
-                                <div class="card-footer bg-transparent">
-                                    <span class="float-left">
-                                        Rating
-                                    </span>
-                                    <span class="float-right">
-                                        <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                            <i class="fas fa-heart heart mr-2"></i> <span>X</span>
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card">
-                            <div class="view overlay z-depth-1">
-                                <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/5Kg76ldv7VxeX9YlcQXiowHgdX6.jpg" class="card-img-top" alt="">
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-                            <div class="card-body text-center no-padding">
-                                <a href="" class="text-muted">
-                                    <h6>01/01/2019</h6>
-                                </a>
-                                <h4 class="card-title">
-                                    <strong>
-                                        <a href="">Movie Title</a>
-                                    </strong>
-                                </h4>
-                                <p class="card-text">
-                                    Neque porro quisquam est, qui dolorem ipsum quia dolor.
-                                </p>
-                                <div class="card-footer bg-transparent">
-                                    <span class="float-left">
-                                        Rating
-                                    </span>
-                                    <span class="float-right">
-                                        <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                            <i class="fas fa-heart heart mr-2"></i> <span>X</span>
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                    -->
                 <div class="row" id="row0"></div>
             </section>
             <section class="section pb-5 d-none" id="loader">
@@ -252,11 +114,9 @@
     </main>
 
     @RenderPage("~/Templates/Common/_Footer.cshtml")
-
     @RenderPage("~/Templates/Common/_Scripts.cshtml")
 
     <script type="text/javascript" src="~/js/home/home.js"></script>
-    <script type="text/javascript" src="~/js/home/popular.js"></script>
 
 </body>
 

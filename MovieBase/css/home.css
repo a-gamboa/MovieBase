@@ -38,3 +38,18 @@ mark {
     background-size: cover;
     background-position: center center;
 }
+
+.badge-pill{
+    font-size: 14px !important;
+}
+
+.small {
+    color: #bdbdbd !important;
+}
+
+@media (max-width: 767px) {
+    .col-lg-3 {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+}
