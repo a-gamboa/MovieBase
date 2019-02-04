@@ -1,0 +1,48 @@
+﻿@{
+    /* ACTOR INFO */
+    dynamic APIactorData = "";
+    using (WebClient wc = new WebClient())
+    {
+        APIactorData = Json.Decode(wc.DownloadString("https://api.themoviedb.org/3/person/" + (Request.QueryString["id"] != null ? Request.QueryString["id"] : "") + "?language=en-US&api_key=840a49ef22ad1005a33effa837972b8e"));
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @RenderPage("~/Templates/Common/_Head.cshtml", new { title = APIactorData.name + " | Your movie database" })
+
+    <link href="~/css/actor.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        @RenderPage("~/Templates/Common/_Header.cshtml")
+
+        
+    </header>
+
+    <main>
+        <div class="container-fluid mb-4">
+            <div class="row mt-5">
+                <ul class="mt-4">
+                    <li>@APIactorData.name</li>
+                    <li>@APIactorData.birthday</li>
+                    <li>@APIactorData.biography</li>
+                    <li>@APIactorData.popularity</li>
+                    <li>@APIactorData.profile_path</li>
+                    <li>@APIactorData.imdb_id</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    @RenderPage("~/Templates/Common/_Footer.cshtml")
+    @RenderPage("~/Templates/Common/_Scripts.cshtml")
+
+    <script type="text/javascript" src="~/js/actor/actor.js"></script>
+
+</body>
+
+</html>

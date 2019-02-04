@@ -10,7 +10,7 @@ $(document).ready(function () {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://api.themoviedb.org/3/configuration?api_key=c5e4a1733c2995102fafe209c014e4c0",
+        "url": "https://api.themoviedb.org/3/configuration?api_key=840a49ef22ad1005a33effa837972b8e",
         "method": "GET",
         "headers": {},
         "data": "{}"
@@ -94,7 +94,7 @@ function loadAPI(page) {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://api.themoviedb.org/3/movie/popular?page=" + page + " &language=en-US&api_key=c5e4a1733c2995102fafe209c014e4c0",
+        "url": "https://api.themoviedb.org/3/movie/popular?page=" + page + " &language=en-US&api_key=840a49ef22ad1005a33effa837972b8e",
         "method": "GET",
         "headers": {},
         "data": "{}"

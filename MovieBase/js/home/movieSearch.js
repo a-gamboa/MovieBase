@@ -12,7 +12,7 @@
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://api.themoviedb.org/3/search/movie?api_key=c5e4a1733c2995102fafe209c014e4c0&language=en-US&page=1&include_adult=false&query=" + $(this).val(),
+            "url": "https://api.themoviedb.org/3/search/movie?api_key=840a49ef22ad1005a33effa837972b8e&language=en-US&page=1&include_adult=false&query=" + $(this).val(),
             "method": "GET",
             "headers": {},
             "data": "{}"

@@ -3,23 +3,22 @@
     dynamic APImovieData = "";
     using (WebClient wc = new WebClient())
     {
-        APImovieData = Json.Decode(wc.DownloadString("https://api.themoviedb.org/3/movie/" + (Request.QueryString["id"] != null ? Request.QueryString["id"] : "") + "?language=en-US&api_key=c5e4a1733c2995102fafe209c014e4c0"));
+        APImovieData = Json.Decode(wc.DownloadString("https://api.themoviedb.org/3/movie/" + (Request.QueryString["id"] != null ? Request.QueryString["id"] : "") + "?language=en-US&api_key=840a49ef22ad1005a33effa837972b8e"));
     }
 
     /* MOVIE VIDEO INFO */
     dynamic APIvideoData = "";
     using (WebClient wc = new WebClient())
     {
-        APIvideoData = Json.Decode(wc.DownloadString("https://api.themoviedb.org/3/movie/" + (Request.QueryString["id"] != null ? Request.QueryString["id"] : "") + "/videos?api_key=c5e4a1733c2995102fafe209c014e4c0&language=en-US"));
+        APIvideoData = Json.Decode(wc.DownloadString("https://api.themoviedb.org/3/movie/" + (Request.QueryString["id"] != null ? Request.QueryString["id"] : "") + "/videos?api_key=840a49ef22ad1005a33effa837972b8e&language=en-US"));
     }
 
     /* MOVIE CREDITS INFO */
     dynamic APIcreditsData = "";
     using (WebClient wc = new WebClient())
     {
-        APIcreditsData = Json.Decode(wc.DownloadString("https://api.themoviedb.org/3/movie/" + (Request.QueryString["id"] != null ? Request.QueryString["id"] : "") + "/credits?api_key=c5e4a1733c2995102fafe209c014e4c0"));
+        APIcreditsData = Json.Decode(wc.DownloadString("https://api.themoviedb.org/3/movie/" + (Request.QueryString["id"] != null ? Request.QueryString["id"] : "") + "/credits?api_key=840a49ef22ad1005a33effa837972b8e"));
     }
-
 }
 
 <!DOCTYPE html>
@@ -43,10 +42,10 @@
     </header>
 
     <main>
-        <div class="container-fluid mb-5">
+        <div class="container-fluid mb-4">
             <div class="row" style="margin-top: -75px;">
                 <div class="col-md-12 px-lg-5">
-                    <div class="card pb-4 mx-md-3">
+                    <div class="card pb-2 mx-md-3">
                         <div class="card-body p-2">
                             <div class="container">
                                 <h1 class="text-center h1 pt-4 mb-3" id="title">
@@ -93,15 +92,16 @@
                                                 <span class="text-white btn-floating success-color-dark btn-sm"><i class="fas fa-hand-holding-usd"></i></span> Revenue: $@APImovieData.revenue
                                             </div>
                                         </div>
+                                        <hr class="my-4" />
                                         <div class="row mt-3 px-3">
-                                            <h4>Overview</h4>
+                                            <h3 class="indigo-text font-weight-bold">Overview</h3>
                                             <p class="dark-grey-text article">
                                                 @APImovieData.overview
                                             </p>
                                         </div>
 
                                         <div class="row mb-2 mt-2 px-2">
-                                            @if (APIvideoData.results.length > 0)
+                                            @if (APIvideoData.results.Length > 0)
                                             {
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="@("https://www.youtube.com/embed/" + APIvideoData.results[0].key)" allowfullscreen></iframe>
@@ -111,6 +111,42 @@
                                             {
                                                 <em>There is no trailer for this movie.</em>
                                             }
+                                        </div>
+                                        <hr class="my-4" />
+                                        <div class="row mb-2 mt-2 px-2">
+                                            <h3 class="indigo-text font-weight-bold">Top billed cast</h3>
+                                            <div class="row">
+                                                @if (APIcreditsData.cast.Length > 0)
+                                                {
+                                                    int i = 0;
+                                                    foreach (dynamic obj in APIcreditsData.cast)
+                                                    {
+                                                        <div class="col-6 col-md-4 px-2 pt-3">
+                                                            <div class="card card-cascade">
+                                                                <div class="view view-cascade">
+                                                                    <img src="@("https://image.tmdb.org/t/p/w300"+obj.profile_path)" class="card-img-top" alt="@obj.name">
+                                                                    <a href="~/Actor?ID=@obj.id">
+                                                                        <div class="mask rgba-white-slight"></div>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="card-body card-body-cascade text-center px-2 py-3">
+                                                                    <a href="~/Actor?ID=@obj.id" class="card-title h5 h5-responsive blue-text"><strong>@obj.name</strong></a>
+                                                                    <h6 class="h6-responsive m-0">@obj.character</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        i++;
+                                                        if (i == 6)
+                                                        {
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <em>There is no cast for this movie.</em>
+                                                }
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
