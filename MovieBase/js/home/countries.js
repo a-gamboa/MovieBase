@@ -14,7 +14,6 @@ $(document).ready(function () {
         }
         $('.mdb-select').materialSelect();
         $('#countrySelector').on('change', function () {
-            console.log("API Call for country: " + this.value);
             loadAPIbyCountry(this.value);
         });
     });
@@ -40,7 +39,7 @@ function loadAPIbyCountry(country) {
         for (var i = 0, l = response.results.length; i < l; i++) {
             if (i % 4 == 0) {
                 rowID++;
-                appendRow(rowID);
+                appendRow("popularMoviesSection", rowID);
             }
             appendMovie(rowID, response.results[i].title, response.results[i].id, response.results[i].poster_path, new Date(response.results[i].release_date), response.results[i].overview, response.results[i].vote_average);
         }

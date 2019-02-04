@@ -21,7 +21,7 @@ $(document).ready(function () {
 
         /* BOTTOM REACHING / INFINITE SCROLL LOADING */
         $(window).scroll(function () {
-            if ($(window).scrollTop() + $(window).height() >= ($(document).height() - 100)) {
+            if (($(window).scrollTop() + $(window).height() >= ($(document).height() - 100)) && $(document).height() > 2000) {
                 $("#loader").removeClass("d-none");
                 page++;
                 loadAPI(page);
@@ -90,6 +90,7 @@ function ratingColor(rating) {
 
 /* SETTINGS + API CALL */
 function loadAPI(page) {
+
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -100,7 +101,6 @@ function loadAPI(page) {
     }
 
     $.ajax(settings).done(function (response) {
-        //console.log(response);
         for (var i = 0, l = response.results.length; i < l; i++) {
             if (i % 4 == 0) {
                 rowID++;
