@@ -54,7 +54,7 @@
                                 <h6 class="text-center grey-text m-0"><i class="fas fa-quote-right mr-2"></i><em>@APImovieData.tagline</em></h6>
                                 <div class="row pt-4 pt-lg-5 pt-1">
                                     <div class="col-md-4 mb-3">
-                                        <img src="@("https://image.tmdb.org/t/p/w600_and_h900_bestv2" + APImovieData.poster_path)" class="img-fluid z-depth-1">
+                                        <img src="@("https://image.tmdb.org/t/p/w600_and_h900_bestv2" + APImovieData.poster_path)" class="img-fluid z-depth-1 rounded">
                                     </div>
                                     <div class="col-md-7 ml-xl-5">
                                         <div class="row px-3 mt-2 mt-lg-0">
@@ -121,19 +121,14 @@
                                                     int i = 0;
                                                     foreach (dynamic obj in APIcreditsData.cast)
                                                     {
-                                                        <div class="col-6 col-md-4 px-2 pt-3">
-                                                            <div class="card card-cascade">
-                                                                <div class="view view-cascade">
-                                                                    <img src="@("https://image.tmdb.org/t/p/w300"+obj.profile_path)" class="card-img-top" alt="@obj.name">
-                                                                    <a href="~/Actor?ID=@obj.id">
-                                                                        <div class="mask rgba-white-slight"></div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="card-body card-body-cascade text-center px-2 py-3">
-                                                                    <a href="~/Actor?ID=@obj.id" class="card-title h5 h5-responsive blue-text"><strong>@obj.name</strong></a>
-                                                                    <h6 class="h6-responsive m-0">@obj.character</h6>
-                                                                </div>
+                                                        <div class="col-6 col-md-4 px-2 pt-3 text-center">
+                                                            <div class="avatar mx-auto mb-3 view overlay zoom">
+                                                                <a href="~/Actor?ID=@obj.id">
+                                                                    <img src="@("https://image.tmdb.org/t/p/w300"+obj.profile_path)" class="z-depth-1 img-fluid rounded">
+                                                                </a>
                                                             </div>
+                                                            <a href="~/Actor?ID=@obj.id" class="h5 h5-responsive blue-text font-weight-bold">@obj.name</a>
+                                                            <h6 class="h6-responsive m-0">@obj.character</h6>
                                                         </div>
                                                         i++;
                                                         if (i == 6)

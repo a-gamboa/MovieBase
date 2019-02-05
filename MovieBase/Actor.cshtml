@@ -5,6 +5,13 @@
     {
         APIactorData = Json.Decode(wc.DownloadString("https://api.themoviedb.org/3/person/" + (Request.QueryString["id"] != null ? Request.QueryString["id"] : "") + "?language=en-US&api_key=840a49ef22ad1005a33effa837972b8e"));
     }
+
+    /* ACTOR FILMS */
+    dynamic APIfilmsData = "";
+    using (WebClient wc = new WebClient())
+    {
+        APIfilmsData = Json.Decode(wc.DownloadString("https://api.themoviedb.org/3/person/" + (Request.QueryString["id"] != null ? Request.QueryString["id"] : "") + "/movie_credits?api_key=840a49ef22ad1005a33effa837972b8e&language=en-US"));
+    }
 }
 
 <!DOCTYPE html>
@@ -19,29 +26,130 @@
 <body>
     <header>
         @RenderPage("~/Templates/Common/_Header.cshtml")
-
-        
     </header>
 
     <main>
-        <div class="container-fluid mb-4">
-            <div class="row mt-5">
-                <ul class="mt-4">
-                    <li>@APIactorData.name</li>
-                    <li>@APIactorData.birthday</li>
-                    <li>@APIactorData.biography</li>
-                    <li>@APIactorData.popularity</li>
-                    <li>@APIactorData.profile_path</li>
-                    <li>@APIactorData.imdb_id</li>
-                </ul>
+        <div class="container-fluid white">
+            <hr class="mb-5 mt-0">
+            <div class="container">
+                <section class="section extra-margins mt-5 py-5 text-center text-lg-left">
+                    <div class="row py-xl-3">
+                        <div class="col-sm-12 col-md-5 col-xl-5 mb-4">
+                            <div class="view overlay z-depth-1">
+                                <img src="@("https://image.tmdb.org/t/p/w500" + APIactorData.profile_path)" class="img-fluid rounded" alt="">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-7 col-xl-6 px-md-4">
+                            <h1 class="dark-grey-text pb-2 font-weight-bold">
+                                <strong>@APIactorData.name</strong>
+                            </h1>
+                            <p class="gold-text mb-4 text-uppercase font-weight-bold">SOME FACTS ABOUT @(@APIactorData.gender == 2 ? "HIM" : "HER")</p>
+                            <hr>
+                            <p class="dark-grey-text mt-4 text-justify">
+                                @APIactorData.biography
+                            </p>
+                            <div class="row mt-5">
+                                <div class="col-7">
+                                    <div class="row mb-3 text-left">
+                                        <div class="col-2 pl-md-4">
+                                            <i class="fas fa-birthday-cake fa-2x cyan-text mt-2"></i>
+                                        </div>
+                                        <div class="col-10 pl-4">
+                                            <h5 class="m-0">Birthday</h5>
+                                            <p class="grey-text font-weight-normal m-0 mt-1">
+                                                @APIactorData.birthday
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="row mb-3 text-left">
+                                        <div class="col-2">
+                                            <i class="fas fa-user fa-2x indigo-text mt-2"></i>
+                                        </div>
+                                        <div class="col-9 pl-4 pr-0">
+                                            <h5 class="m-0">Gender</h5>
+                                            <p class="grey-text font-weight-normal m-0 mt-1">
+                                                @(APIactorData.gender == 2 ? "Male" : "Female")
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-7">
+                                    <div class="row mb-3 text-left">
+                                        <div class="col-2 pl-md-4">
+                                            <i class="fas fa-map-marker-alt fa-2x pink-text mt-2"></i>
+                                        </div>
+                                        <div class="col-10 pl-4">
+                                            <h5 class="m-0">Place of Birth</h5>
+                                            <p class="grey-text font-weight-normal m-0 mt-1">
+                                                @APIactorData.place_of_birth
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="row mb-3 text-left">
+                                        <div class="col-2">
+                                            <i class="fas fa-file-video fa-2x deep-purple-text mt-2"></i>
+                                        </div>
+                                        <div class="col-9 pl-4 pr-0">
+                                            <h5 class="m-0">Known for</h5>
+                                            <p class="grey-text font-weight-normal m-0 mt-1">
+                                                @APIactorData.known_for_department
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="container-fluid grey lighten-4">
+            <div class="container">
+                <section id="portfolio" class="section pt-3 pb-3">
+                    <h1 class="text-center text-uppercase font-weight-bold mb-5 mb-md-5 mt-4">Known for</h1>
+                    <div class="row pb-4 pt-1">
+                        @if (APIfilmsData.cast.Length > 0)
+                        {
+                            int i = 0;
+                            foreach (dynamic obj in APIfilmsData.cast)
+                            {
+                                <div class="col-6 col-md-3 mb-4">
+                                    <a href="~/Movie?id=@obj.id">
+                                        <img src="@("https://image.tmdb.org/t/p/w500"+obj.poster_path)" class="img-fluid z-depth-1 rounded">
+                                    </a>
+                                    <h6 class="text-uppercase font-weight-bold blue-text mt-3 text-center">@obj.title</h6>
+                                </div>
+                                i++;
+                                if (i == 8)
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            <em>There is no movies for this actor.</em>
+                        }
+                        <div class="row pt-5 mb-4 center-text d-none">
+                            <div class="col-md-12">
+                                <a class="btn btn-outline-black waves-effect"><strong>more</strong></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </main>
 
     @RenderPage("~/Templates/Common/_Footer.cshtml")
     @RenderPage("~/Templates/Common/_Scripts.cshtml")
-
-    <script type="text/javascript" src="~/js/actor/actor.js"></script>
 
 </body>
 
