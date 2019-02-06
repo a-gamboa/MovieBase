@@ -1,8 +1,11 @@
-﻿@{
+﻿@using System.Text;
+
+@{
     /* MOVIE INFO */
     dynamic APImovieData = "";
     using (WebClient wc = new WebClient())
     {
+        wc.Encoding = Encoding.UTF8;
         APImovieData = Json.Decode(wc.DownloadString("https://api.themoviedb.org/3/movie/" + (Request.QueryString["id"] != null ? Request.QueryString["id"] : "") + "?language=en-US&api_key=840a49ef22ad1005a33effa837972b8e"));
     }
 
@@ -10,6 +13,7 @@
     dynamic APIvideoData = "";
     using (WebClient wc = new WebClient())
     {
+        wc.Encoding = Encoding.UTF8;
         APIvideoData = Json.Decode(wc.DownloadString("https://api.themoviedb.org/3/movie/" + (Request.QueryString["id"] != null ? Request.QueryString["id"] : "") + "/videos?api_key=840a49ef22ad1005a33effa837972b8e&language=en-US"));
     }
 
@@ -17,6 +21,7 @@
     dynamic APIcreditsData = "";
     using (WebClient wc = new WebClient())
     {
+        wc.Encoding = Encoding.UTF8;
         APIcreditsData = Json.Decode(wc.DownloadString("https://api.themoviedb.org/3/movie/" + (Request.QueryString["id"] != null ? Request.QueryString["id"] : "") + "/credits?api_key=840a49ef22ad1005a33effa837972b8e"));
     }
 }
@@ -115,7 +120,7 @@
                                         <hr class="my-4" />
                                         <div class="row mb-2 mt-2 px-2">
                                             <h3 class="indigo-text font-weight-bold">Top billed cast</h3>
-                                            <div class="row">
+                                            <div class="row" id="actorsDiv">
                                                 @if (APIcreditsData.cast.Length > 0)
                                                 {
                                                     int i = 0;
@@ -142,6 +147,62 @@
                                                     <em>There is no cast for this movie.</em>
                                                 }
                                             </div>
+                                            @if (APIcreditsData.cast.Length > 5)
+                                            {
+                                                <div class="container mt-4">
+                                                    <div class="row mt-1">
+                                                        <div class="col d-flex justify-content-center">
+                                                            <button type="button" class="btn blue-gradient btn-sm btn-rounded" id="loadMoreBtn">Load More<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></button>
+                                                            <div class="preloader-wrapper small active mt-1 d-none" id="loader">
+                                                                <div class="spinner-layer spinner-blue">
+                                                                    <div class="circle-clipper left">
+                                                                        <div class="circle"></div>
+                                                                    </div>
+                                                                    <div class="gap-patch">
+                                                                        <div class="circle"></div>
+                                                                    </div>
+                                                                    <div class="circle-clipper right">
+                                                                        <div class="circle"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="spinner-layer spinner-red">
+                                                                    <div class="circle-clipper left">
+                                                                        <div class="circle"></div>
+                                                                    </div>
+                                                                    <div class="gap-patch">
+                                                                        <div class="circle"></div>
+                                                                    </div>
+                                                                    <div class="circle-clipper right">
+                                                                        <div class="circle"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="spinner-layer spinner-yellow">
+                                                                    <div class="circle-clipper left">
+                                                                        <div class="circle"></div>
+                                                                    </div>
+                                                                    <div class="gap-patch">
+                                                                        <div class="circle"></div>
+                                                                    </div>
+                                                                    <div class="circle-clipper right">
+                                                                        <div class="circle"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="spinner-layer spinner-green">
+                                                                    <div class="circle-clipper left">
+                                                                        <div class="circle"></div>
+                                                                    </div>
+                                                                    <div class="gap-patch">
+                                                                        <div class="circle"></div>
+                                                                    </div>
+                                                                    <div class="circle-clipper right">
+                                                                        <div class="circle"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
                                         </div>
                                     </div>
                                 </div>

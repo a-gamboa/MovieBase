@@ -1,8 +1,11 @@
-﻿@{
+﻿@using System.Text;
+
+@{
     /* ACTOR INFO */
     dynamic APIactorData = "";
     using (WebClient wc = new WebClient())
     {
+        wc.Encoding = Encoding.UTF8;
         APIactorData = Json.Decode(wc.DownloadString("https://api.themoviedb.org/3/person/" + (Request.QueryString["id"] != null ? Request.QueryString["id"] : "") + "?language=en-US&api_key=840a49ef22ad1005a33effa837972b8e"));
     }
 
@@ -10,6 +13,7 @@
     dynamic APIfilmsData = "";
     using (WebClient wc = new WebClient())
     {
+        wc.Encoding = Encoding.UTF8;
         APIfilmsData = Json.Decode(wc.DownloadString("https://api.themoviedb.org/3/person/" + (Request.QueryString["id"] != null ? Request.QueryString["id"] : "") + "/movie_credits?api_key=840a49ef22ad1005a33effa837972b8e&language=en-US"));
     }
 }
