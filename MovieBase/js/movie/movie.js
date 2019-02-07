@@ -33,7 +33,6 @@ $.ajax(castSettings).done(function (response) {
 $(document).ready(function () {
     /* LOAD MORE CLICK */
     $("#loadMoreBtn").on("click", function () {
-        console.log('click');
         loadMore();
     });
 });
@@ -41,19 +40,29 @@ $(document).ready(function () {
 
 /* APPEND ROW FUNCTION (4 MOVIES/ROW) */
 function loadMore() {
+
     $("#loadMoreBtn").addClass("d-none");
     $("#loader").removeClass("d-none");
 
-    $("#actorsDiv").append(`<div class="col-6 col-md-4 px-2 pt-3 text-center">
+    var i = nActors;
+    for (let j = nActors; j < i + 6; j++) {
+        $("#actorsDiv").append(`<div class="col-6 col-md-4 px-2 pt-3 text-center">
                                                             <div class="avatar mx-auto mb-3 view overlay zoom">
-                                                                <a href="~/Actor?ID=`+ cast[nActors].id +`">
+                                                                <a href="~/Actor?ID=`+ cast[nActors].id + `">
                                                                     <img src="`+ imageUrlPrefix + `/w300` + cast[nActors].profile_path + `" class= "z-depth-1 img-fluid rounded" >
                                                                 </a>
                                                             </div>
-                                                            <a href="/Actor?ID=`+ cast[nActors].id + `" class="h5 h5-responsive blue-text font-weight-bold">` + cast[nActors].name +`</a>
-                                                            <h6 class="h6-responsive m-0">`+ cast[nActors].character +`</h6>
+                                                            <a href="/Actor?ID=`+ cast[nActors].id + `" class="h5 h5-responsive blue-text font-weight-bold">` + cast[nActors].name + `</a>
+                                                            <h6 class="h6-responsive m-0">`+ cast[nActors].character + `</h6>
                                                         </div>`);
-    nActors++;
+        nActors++;
+        if (cast[nActors] === undefined) {
+            break;
+        }
+    }
+    
     $("#loader").addClass("d-none");
-    $("#loadMoreBtn").removeClass("d-none");
+    if (cast[nActors] !== undefined) {
+        $("#loadMoreBtn").removeClass("d-none");
+    }
 }
