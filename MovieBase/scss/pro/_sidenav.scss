@@ -38,6 +38,96 @@
   padding: 0;
   @extend .white-text;
   box-shadow: $z-depth-1;
+  &.slim {
+    width: 3.75rem;
+    &:hover {
+      width: $sidenav-width;
+      overflow: visible;
+      transition-property: top,bottom,width;
+      transition-duration: .2s,.2s,.35s;
+      transition-timing-function: linear,linear,ease;
+      .collapsible {
+        a {
+          padding-left: 23px;
+          transition: all .3s ease-in-out;
+          .sv-normal {
+            opacity: 1;
+            transition: all .1s linear;
+          }
+          .sv-slim {
+            opacity: 0;
+            display: none;
+            transition: all .1s linear;
+          }
+        }
+        .sv-slim-icon {
+          padding-left: 0;
+          width: 30px;
+          height: 36px;
+          text-align: left;
+          margin-right: 0;
+        }
+      }
+      .collapsible-body a {
+        padding-left: $sidenav-collapsible-body-a-pl;
+      }
+      .fa-angle-down {
+        &.rotate-icon {
+          opacity: 1;
+          display: block;
+        }
+      }
+    }
+    transition-property: top,bottom,width;
+    transition-duration: .2s,.2s,.35s;
+    transition-timing-function: linear,linear,ease;
+    .logo-wrapper {
+      &.sn-ad-avatar-wrapper {
+        height: 5rem;
+        padding: 19px 10px;
+        border-bottom: 1px solid $sidenav-logo-wrapper-border-bottom-color;
+        a {
+          line-height: 2.6rem;
+          color: #fff;
+          span {
+            padding-left: .7rem;
+            margin-top: -1rem;
+          }
+          img {
+            max-width: 2.5rem;
+            padding: 0;
+          }
+        }
+      }
+    }
+    .collapsible {
+      a {
+        padding-left: 23px;
+        transition: all .3s ease-in-out;
+        .sv-normal {
+          opacity: 0;
+          transition: all .1s linear;
+        }
+        .sv-slim {
+          opacity: 1;
+          transition: all .1s linear;
+        }
+      }
+      .sv-slim-icon {
+        padding-left: 0;
+        width: 30px;
+        height: 36px;
+        text-align: left;
+        margin-right: 0;
+      }
+    }
+    .fa-angle-down {
+      &.rotate-icon {
+        opacity: 0;
+        display: none;
+      }
+    }
+  }
   >ul {
     max-height: 100vh;
   }

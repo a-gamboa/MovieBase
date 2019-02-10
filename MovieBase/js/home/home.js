@@ -43,7 +43,7 @@ function appendMovie(rowID, title, movieID, imagePath, releaseDate, overview, ra
                         <div class="card">
                             <div class="view overlay z-depth-1">
                                 <img src="`+ imageUrlPrefix + imagePath + `" class="card-img-top" alt="">
-                                <a href="MovieBase/Movie?id=`+ movieID + `">
+                                <a href="`+ locationOrigin + `/Movie?id=` + movieID + `">
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
                             </div>
@@ -51,7 +51,7 @@ function appendMovie(rowID, title, movieID, imagePath, releaseDate, overview, ra
                                 <h6><i class="far fa-clock pr-2"></i>`+ monthNames[releaseDate.getMonth()] + ` ` + releaseDate.getDay() + `, ` + releaseDate.getFullYear() + `</h6>
                                 <h4 class="card-title">
                                     <strong>
-                                        <a href="MovieBase/Movie?id=`+ movieID + `">` + title + `</a>
+                                        <a href="`+ locationOrigin + `/Movie?id=`+ movieID + `">` + title + `</a>
                                     </strong>
                                 </h4>
                                 <p class="card-text">

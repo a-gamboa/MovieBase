@@ -1,6 +1,6 @@
 /*!
  * Material Design for Bootstrap 4
- * Version: MDB PRO 4.6.1
+ * Version: MDB PRO 4.7.1
  *
  *
  * Copyright: Material Design for BootstrapS
@@ -21,7 +21,7 @@
  *
  * Contact: office@mdbootstrap.com
  *
- * Attribution: Animate CSS, Twitter Bootstrap, Materialize CSS, Normalize CSS, Waves JS, WOW JS, Toastr, Chart.js , Hammer.js
+ * Attribution: Animate CSS, Twitter Bootstrap, Materialize CSS, Normalize CSS, Waves JS, WOW JS, Toastr, Chart.js
  *
  */
 
@@ -60,12 +60,13 @@
 @import "free/footers";
 @import "free/list-group";
 @import "free/tables";
-@import "free/switch";
 @import "free/depreciated";
 @import "free/steppers";
 @import "free/loader";
 // Free addons
 // @import "addons/datatables";
+// @import "addons/datatables-select";
+// @import "addons/directives";
 
 // PRO
 @import "pro/variables";

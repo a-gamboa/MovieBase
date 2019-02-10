@@ -11,7 +11,7 @@
   background: rgba(97, 97, 97, 0.90) !important;
   border-radius: 4px;
   font-size: 10px;
-  max-height: 24px !important;
+  min-height: 24px !important;
 }
 
 .md-arrow {
@@ -23,7 +23,7 @@
   background: rgba(97, 97, 97, 0.90) !important;
   border-radius: 4px;
   font-size: 14px;
-  max-height: 32px !important;
+  min-height: 32px !important;
 }
 
 .md-tooltip,

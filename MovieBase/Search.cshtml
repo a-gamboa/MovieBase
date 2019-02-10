@@ -16,11 +16,19 @@
         <div class="container" id="main">
             <section class="section py-5 fadeIn">
                 <h1 class="font-weight-bold text-center h1 mt-5 mb-4 h1-responsive"><i class="fas fa-film mr-3 indigo-text"></i>Search Movie</h1>
-                <div class="md-form m-auto my-3">
-                    <i class="fas fa-search prefix"></i>
-                    <input type="text" id="searchMovie" class="form-control">
-                    <label for="searchMovie">Search movie</label>
+
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="md-form my-3 mr-2">
+                        <i class="fas fa-search prefix mt-1"></i>
+                        <input type="text" id="searchMovie" class="form-control">
+                        <label for="searchMovie" id="inputLabel">Search movie</label>
+                    </div>
+                    <a class="btn-floating btn-sm blue-gradient m-2" id="mic"><i class="fas fa-microphone"></i></a>
+                    <div class="spinner-grow text-primary d-none m-2" id="listening" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
                 </div>
+
                 <div class="row d-none mt-4" id="divResults">
                     <div class="card card-cascade wider m-auto">
                         <div class="view view-cascade gradient-card-header blue-gradient py-2">
@@ -40,8 +48,8 @@
     @RenderPage("~/Templates/Common/_Footer.cshtml")
     @RenderPage("~/Templates/Common/_Scripts.cshtml")
 
-    <script type="text/javascript" src="~/js/home/movieSearch.js"></script>
-
+    <script type="text/javascript" src="~/js/search/movieSearch.js"></script>
+    <script type="text/javascript" src="~/js/search/recognition.js?v=1"></script>
 </body>
 
 </html>

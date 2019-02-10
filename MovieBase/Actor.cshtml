@@ -128,7 +128,9 @@
                                     <a href="~/Movie?id=@obj.id">
                                         <img src="@("https://image.tmdb.org/t/p/w500"+obj.poster_path)" class="img-fluid z-depth-1 rounded">
                                     </a>
-                                    <h6 class="text-uppercase font-weight-bold blue-text mt-3 text-center">@obj.title</h6>
+                                    <a href="~/Movie?id=@obj.id">
+                                        <h6 class="text-uppercase font-weight-bold blue-text mt-3 text-center">@obj.title</h6>
+                                    </a>
                                 </div>
                                 i++;
                                 if (i == 8)
